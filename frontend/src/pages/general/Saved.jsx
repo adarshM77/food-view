@@ -9,7 +9,7 @@ const Saved = () => {
 
     useEffect(() => {
 
-        axios.get("http://localhost:3000/api/food/save", { withCredentials: true })
+        axios.get("http://food-view-backend-nfos.onrender.com/api/food/save", { withCredentials: true })
             .then(response => {
                 const savedFoods = response.data.savedFoods.map((item) => ({
                     _id: item.food._id,

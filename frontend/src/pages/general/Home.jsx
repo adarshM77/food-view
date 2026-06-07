@@ -36,7 +36,7 @@ const Home = () => {
     }, [ videos ])
 
     useEffect(() => {
-        axios.get("http://food-view-backend-nfos.onrender.com/api/food", { withCredentials: true })
+        axios.get("https://food-view-backend-nfos.onrender.com/api/food", { withCredentials: true })
             .then(response => {
 
                 console.log(response.data);
@@ -56,7 +56,7 @@ const Home = () => {
 
     async function likeVideo(item) {
 
-        const response = await axios.post("http://food-view-backend-nfos.onrender.com/api/food/like", { foodId: item._id }, {withCredentials: true})
+        const response = await axios.post("https://food-view-backend-nfos.onrender.com/api/food/like", { foodId: item._id }, {withCredentials: true})
 
         if(response.data.like){
             console.log("Video liked");
@@ -69,7 +69,7 @@ const Home = () => {
     }
 
     async function saveVideo(item) {
-        const response = await axios.post("http://food-view-backend-nfos.onrender.com/api/food/save", { foodId: item._id }, { withCredentials: true })
+        const response = await axios.post("https://food-view-backend-nfos.onrender.com/api/food/save", { foodId: item._id }, { withCredentials: true })
         
         if(response.data.save){
             setVideos((prev) => prev.map((v) => v._id === item._id ? { ...v, savesCount: v.savesCount + 1 } : v))
